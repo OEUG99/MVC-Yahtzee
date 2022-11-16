@@ -28,6 +28,7 @@ public class Dice
 
 class DicePanel extends JPanel
 {
+  //Seperated the Values themselves and the ability to reroll them due to it causing issues when combined
   private Integer rand1 = 1 + (int)(6 * Math.random());
   private Integer rand2 = 1 + (int)(6 * Math.random());
   private Integer rand3 = 1 + (int)(6 * Math.random());
@@ -47,12 +48,15 @@ class DicePanel extends JPanel
   private JCheckBox Reroll5 = new JCheckBox();
   private ButtonHandler button = new ButtonHandler();
   private JLabel label1 = new JLabel("Your Dice:");
-  private JLabel label2 = new JLabel("Select the box next to the dice to Reroll it.");
+  private JLabel label2 = new JLabel("Select the box next to the dice to Reroll it up to 2 times.");
+  private Integer TimesRerolled = 0;
+  private JLabel label3 = new JLabel("Only 2 Rerolls!");
   
+  //Incase we wanna do things with paint/background in future
   public void paint(Graphics g)
   {
-    super.paint( g );
-    setBackground( background );
+    super.paint(g);
+    setBackground(background);
   }
   
   public DicePanel()
@@ -76,58 +80,71 @@ class DicePanel extends JPanel
   
   private class ButtonHandler implements ActionListener
   {
-    public void actionPerformed( ActionEvent event)
+    public void actionPerformed(ActionEvent event)
     {
-      if(Reroll1.isSelected())
-      {
-        rand1 = 1 + (int)(6 * Math.random());
-        remove(Dice1);
-        Dice1 = new JLabel(rand1.toString());
-      }
+      //This is setup a really wierd way just because this is the easiest way I've found to do it so far
       
-      if(Reroll2.isSelected())
-      {
-        rand2 = 1 + (int)(6 * Math.random());
-        remove(Dice2);
-        Dice2 = new JLabel(rand2.toString());
-      }
-      if(Reroll3.isSelected())
-      {
-        rand3 = 1 + (int)(6 * Math.random());
-        remove(Dice3);
-        Dice3 = new JLabel(rand3.toString());
-      }
-      if(Reroll4.isSelected())
-      {
-        rand4 = 1 + (int)(6 * Math.random());
-        remove(Dice4);
-        Dice4 = new JLabel(rand4.toString());
-      }
-      if(Reroll5.isSelected())
-      {
-        rand5 = 1 + (int)(6 * Math.random());
-        remove(Dice5);
-        Dice5 = new JLabel(rand5.toString());
-      }
       
-      remove(Reroll1);
-      add(Reroll1);
-      add(Dice1);
-      remove(Reroll2);
-      add(Reroll2);
-      add(Dice2);
-      remove(Reroll3);
-      add(Reroll3);
-      add(Dice3);
-      remove(Reroll4);
-      add(Reroll4);
-      add(Dice4);
-      remove(Reroll5);
-      add(Reroll5);
-      add(Dice5);
-      remove(label2);
-      add(label2);
+      if(TimesRerolled < 2)
+      {
+        if(Reroll1.isSelected())
+        {
+          rand1 = 1 + (int)(6 * Math.random());
+          remove(Dice1);
+          Dice1 = new JLabel(rand1.toString());
+        }
+        if(Reroll2.isSelected())
+        {
+          rand2 = 1 + (int)(6 * Math.random());
+          remove(Dice2);
+          Dice2 = new JLabel(rand2.toString());
+        }
+        if(Reroll3.isSelected())
+        {
+          rand3 = 1 + (int)(6 * Math.random());
+          remove(Dice3);
+          Dice3 = new JLabel(rand3.toString());
+        }
+        if(Reroll4.isSelected())
+        {
+          rand4 = 1 + (int)(6 * Math.random());
+          remove(Dice4);
+          Dice4 = new JLabel(rand4.toString());
+        }
+        if(Reroll5.isSelected())
+        {
+          rand5 = 1 + (int)(6 * Math.random());
+          remove(Dice5);
+          Dice5 = new JLabel(rand5.toString());
+        }
       
+        remove(Reroll1);
+        add(Reroll1);
+        add(Dice1);
+        remove(Reroll2);
+        add(Reroll2);
+        add(Dice2);
+        remove(Reroll3);
+        add(Reroll3);
+        add(Dice3);
+        remove(Reroll4);
+        add(Reroll4);
+        add(Dice4);
+        remove(Reroll5);
+        add(Reroll5);
+        add(Dice5);
+        remove(label2);
+        add(label2);
+ 
+      TimesRerolled++;
+
+      }
+      else
+      {
+        remove(Roll);
+        add(label3);
+      }
+
       setVisible(false);
       setVisible(true);
     }
