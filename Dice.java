@@ -12,16 +12,15 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JCheckBox;
 
-
 public class Dice
 {
   public static void main(String[] args)
   {
-    JFrame frame = new JFrame( "Dice" );
+    JFrame frame = new JFrame("Dice");
     frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     DicePanel dp = new DicePanel();
     dp.setBackground(Color.white);
-    frame.add( dp );
+    frame.add(dp);
     frame.setSize( 600, 100 );
     frame.setVisible( true );
   }
