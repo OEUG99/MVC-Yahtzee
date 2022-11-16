@@ -2,7 +2,6 @@
 // Made by Paul Giglio
 // COP3252, Robert Myers, Assignment X
 
-import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
@@ -49,6 +48,7 @@ class DicePanel extends JPanel
   private JCheckBox Reroll5 = new JCheckBox();
   private ButtonHandler button = new ButtonHandler();
   private JLabel label1 = new JLabel("Your Dice:");
+  private JLabel label2 = new JLabel("Select the box next to the dice to Reroll it.");
   
   public void paint(Graphics g)
   {
@@ -72,6 +72,7 @@ class DicePanel extends JPanel
     add(Dice4);
     add(Reroll5);
     add(Dice5);
+    add(label2);
   }
   
   private class ButtonHandler implements ActionListener
@@ -125,6 +126,8 @@ class DicePanel extends JPanel
       remove(Reroll5);
       add(Reroll5);
       add(Dice5);
+      remove(label2);
+      add(label2);
       
       setVisible(false);
       setVisible(true);
