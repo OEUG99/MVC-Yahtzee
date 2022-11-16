@@ -82,9 +82,7 @@ class DicePanel extends JPanel
   {
     public void actionPerformed(ActionEvent event)
     {
-      //This is setup a really wierd way just because this is the easiest way I've found to do it so far
-      
-      
+      //This is setup a really weird way just because this is the easiest way I've found to do it so far
       if(TimesRerolled < 2)
       {
         if(Reroll1.isSelected())
