@@ -3,9 +3,8 @@ package controller;
 import model.MainModel;
 import view.MainView;
 
-import java.awt.event.ActionListener;
 
-public abstract class AbstractController implements ActionListener {
+public abstract class AbstractController {
 
     MainView view;
     MainModel model;
@@ -15,3 +14,4 @@ public abstract class AbstractController implements ActionListener {
         this.model = model;
     }
 }
+

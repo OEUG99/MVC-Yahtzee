@@ -6,6 +6,8 @@ import java.awt.*;
 public class MainView extends JFrame{
 
     private DiceContainerView diceContainerView;
+    private JLabel scoreLabel;
+
     public MainView() {
         super("Game");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -16,16 +18,19 @@ public class MainView extends JFrame{
         add(diceContainerView, BorderLayout.SOUTH);
 
         // temp text that says Hello Yahtzee!
-        JLabel label = new JLabel("Hello Yahtzee!");
-        label.setHorizontalAlignment(JLabel.CENTER);
-        label.setVerticalAlignment(JLabel.CENTER);
-        label.setFont(new Font("Arial", Font.PLAIN, 50));
-        add(label, BorderLayout.CENTER);
+        scoreLabel = new JLabel("Hello Yahtzee!");
+        scoreLabel.setHorizontalAlignment(JLabel.CENTER);
+        scoreLabel.setVerticalAlignment(JLabel.CENTER);
+        scoreLabel.setFont(new Font("Arial", Font.PLAIN, 50));
+        add(scoreLabel, BorderLayout.CENTER);
 
-        setVisible(true);
     }
 
     public DiceContainerView getDiceContainer() {
         return diceContainerView;
+    }
+
+    public JLabel getScoreLabel() {
+        return scoreLabel;
     }
 }

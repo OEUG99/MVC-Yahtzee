@@ -3,7 +3,6 @@ package controller;
 import model.MainModel;
 import view.MainView;
 
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -13,10 +12,6 @@ public class KeyboardController extends AbstractController implements KeyListene
         super(view, model);
     }
 
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-    }
 
     @Override
     public void keyTyped(KeyEvent e) {

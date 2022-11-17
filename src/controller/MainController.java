@@ -3,10 +3,13 @@ package controller;
 import model.MainModel;
 import view.MainView;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
-public class MainController extends AbstractController {
+
+public class MainController extends AbstractController implements ActionListener {
 
     MouseController mouseController;
     KeyboardController keyboardController;
@@ -16,12 +19,55 @@ public class MainController extends AbstractController {
 
     public MainController(MainView view, MainModel model) {
         super(view, model);
-
-
+        initController();
+        start();
     }
 
-    // generic method for registering controllers:
-    public void registerController(AbstractController controller) {
+    /**
+     * <p>The main function that controls the flow of the applications.</p>
+     */
+    private void start() {
+        view.setVisible(true);
+        // creating timer, think og this as an alternative to a tradional game's while loop
+        Timer timer = new Timer(0, this);
+        timer.start();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // update the score label
+        view.getScoreLabel().setText("Sum of all dice: " + model.getSumOfAllDice());
+    }
+
+    private void initController() {
+        // registering the sub-controllers to the main controller:
+        registerController(new MouseController(view, model));
+        registerController(new KeyboardController(view, model));
+        registerController(new ButtonController(view, model));
+        registerController(new WindowController(view, model));
+
+        // We can now assign specific sub-controllers to the view of different components.
+        // First lets assigning the mouse sub-controller to the DiceContainerView:
+        // notice how we get the DiceContainerView from the MainView using getter.
+        view.getDiceContainer().addMouseListener(getMouseController());
+
+        // Assigning the button sub-controller to the roll dice button:
+        // Notice how from mainView we get the container again, but then we get the button.
+        // this allows us the button controller to update the model whenever that single button is pressed.
+        view.getDiceContainer().getButton().addActionListener(getButtonController());
+
+        // Assigning the window sub-controller to the main view (the JFrame):
+        // this is used to handle scaling of the window.
+        view.addComponentListener(getWindowController());
+
+        // Now let's, assigning the mouse sub-controller to the individual dice:
+        for (int i = 0; i < 5; i++) {
+            // Since the dice are stored in teh dice container, we access it through that, then assign the controller:
+            view.getDiceContainer().getDice(i).addMouseListener(getMouseController());
+        }
+    }
+
+    private void registerController(AbstractController controller) {
         if (controller instanceof MouseController) {
             mouseController = (MouseController) controller;
         } else if (controller instanceof KeyboardController) {
@@ -33,8 +79,6 @@ public class MainController extends AbstractController {
         }
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {}
 
     // getters for sub-controllers
     public MouseController getMouseController() {
@@ -52,7 +96,5 @@ public class MainController extends AbstractController {
     public WindowController getWindowController() {
         return windowController;
     }
-
-
 
 }

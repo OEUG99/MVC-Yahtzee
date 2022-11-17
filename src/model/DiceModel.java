@@ -15,6 +15,11 @@ public class DiceModel {
         return Integer.toString(value);
     }
 
+    public int getValueAsInt() {
+        return value;
+    }
+
+
     public void setValue(int value) {
         this.value = value;
     }

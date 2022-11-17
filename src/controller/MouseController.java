@@ -15,21 +15,12 @@ public class MouseController extends AbstractController implements MouseMotionLi
         super(view, model);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // mouse events switch statement
-        String ctx = e.getActionCommand();
-        switch (ctx) {}
-        }
 
     @Override
     public void mouseClicked(MouseEvent e) {
 
-        System.out.println(e.getSource().toString());
-
         // if dice in the dice container
-        if (e.getSource() instanceof DiceView) {
-            DiceView diceViewInstance = (DiceView) e.getSource();
+        if (e.getSource() instanceof DiceView diceViewInstance) {
 
             // getting the Model instance of the dice
             DiceModel diceModelInstance = model.getDice(diceViewInstance.getId());
@@ -45,8 +36,6 @@ public class MouseController extends AbstractController implements MouseMotionLi
                 diceViewInstance.setLocked(diceModelInstance.isLocked());
             }
 
-            // updating the dice image:
-            //diceViewInstance.setDiceText(model.getDice(diceViewInstance.getId()).getValue());
 
         }
 

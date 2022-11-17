@@ -4,7 +4,6 @@ import model.MainModel;
 import view.MainView;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
@@ -17,8 +16,6 @@ public class WindowController extends AbstractController implements ComponentLis
         super(mainView, mainModel);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {}
 
     @Override
     public void componentResized(ComponentEvent e) {
@@ -42,6 +39,6 @@ public class WindowController extends AbstractController implements ComponentLis
                 e.getComponent().getWidth()/10);
 
         // setting the preferred size on all the dice components
-        view.getDiceContainer().updateSize(diceSize);;
+        view.getDiceContainer().updateSize(diceSize);
     }
 }
