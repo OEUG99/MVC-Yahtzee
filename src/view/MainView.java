@@ -17,8 +17,7 @@ public class MainView extends JFrame{
         this.diceContainerView = new DiceContainerView();
         add(diceContainerView, BorderLayout.SOUTH);
 
-        // temp text that says Hello Yahtzee!
-        scoreLabel = new JLabel("Hello Yahtzee!");
+        scoreLabel = new JLabel(); // this will be updated by the main controller to put the dice total sum
         scoreLabel.setHorizontalAlignment(JLabel.CENTER);
         scoreLabel.setVerticalAlignment(JLabel.CENTER);
         scoreLabel.setFont(new Font("Arial", Font.PLAIN, 50));
