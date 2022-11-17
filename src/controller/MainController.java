@@ -6,7 +6,7 @@ import view.MainView;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.awt.event.ComponentEvent;
 
 
 public class MainController extends AbstractController implements ActionListener {
@@ -27,7 +27,10 @@ public class MainController extends AbstractController implements ActionListener
      * <p>The main function that controls the flow of the applications.</p>
      */
     private void start() {
+        // auto-sizing the game based on screen size:
+        getWindowController().scaleView(new ComponentEvent(view, ComponentEvent.COMPONENT_RESIZED));
         view.setVisible(true);
+
         // creating timer, think og this as an alternative to a tradional game's while loop
         Timer timer = new Timer(0, this);
         timer.start();

@@ -9,9 +9,14 @@ public class MainView extends JFrame{
     private JLabel scoreLabel;
 
     public MainView() {
-        super("Game");
+        super("Yahtzee");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 800);
+
+        //Setting window size to size of monitor
+        Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setSize(monitorSize.width, monitorSize.height);
+
+
         setLayout(new BorderLayout());
 
         this.diceContainerView = new DiceContainerView();

@@ -23,7 +23,7 @@ public class DiceContainerView extends JPanel {
         }
 
         button = new JButton("Roll All DiceView");
-        button.setPreferredSize(new Dimension(85,85));
+        button.setPreferredSize(new Dimension(100,100));
         button.setBackground(new Color(0x6AA4FF));
         add(button);
     }
