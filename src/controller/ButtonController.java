@@ -16,6 +16,9 @@ public class ButtonController extends AbstractControllerListener {
 
         // if the button is the one in the DiceRowContainer
         if (e.getSource() == view.getDiceContainer().getButton()) {
+
+            model.gameStarted = true; // if we roll all teh dice, we know the game started.
+
             // roll every dice
             for (int i = 0; i < 5; i++) {
                 model.getDice(i).roll();

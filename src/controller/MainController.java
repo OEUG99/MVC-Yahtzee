@@ -36,7 +36,9 @@ public class MainController extends AbstractController implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) {
         // update the score label
-        view.getScoreLabel().setText("Sum of all dice: " + model.getSumOfAllDice());
+        if (model.gameStarted) {
+            view.getScoreLabel().setText("Sum of all dice: " + model.getSumOfAllDice());
+        }
     }
 
     private void initController() {

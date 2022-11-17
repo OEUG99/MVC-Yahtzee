@@ -12,6 +12,9 @@ public class MainModel {
     public DiceModel [] dice = new DiceModel[5];
 
 
+    public Boolean gameStarted = false;
+
+
     public MainModel() {
 
         // Instantiate the dice

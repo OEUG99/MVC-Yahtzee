@@ -12,6 +12,7 @@ public class DiceContainerView extends JPanel {
 
     public JButton button;
 
+
     public DiceContainerView() {
         super();
 
