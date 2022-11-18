@@ -44,32 +44,32 @@ public class MouseController extends AbstractController implements MouseMotionLi
 
     @Override
     public void mousePressed(MouseEvent e) {
-          // todo implement mousePressed (we pass ActionEvents in case we need to get info like mouse position)
+          // todo implement mousePressed
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-          // todo implement mouseReleased (we pass ActionEvents in case we need to get info like mouse position)
+          // todo implement mouseReleased
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-          // todo implement mouseEntered (we pass ActionEvents in case we need to get info like mouse position)
+          // todo implement mouseEntered
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-          // todo implement mouseExited (we pass ActionEvents in case we need to get info like mouse position)
+          // todo implement mouseExited
     }
 
     @Override
     public void mouseDragged(MouseEvent e) {
-          // todo implement mouseDragged (we pass ActionEvents in case we need to get info like mouse position)
+          // todo implement mouseDragged
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-          // todo implement mouseMoved (we pass ActionEvents in case we need to get info like mouse position)
+          // todo implement mouseMoved )
     }
 
 }

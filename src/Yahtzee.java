@@ -5,7 +5,6 @@ import view.MainView;
 
 public class Yahtzee {
     public static void main(String[] args) {
-
         MainModel model = new MainModel();
         MainView view = new MainView();
         MainController controller = new MainController(view, model);

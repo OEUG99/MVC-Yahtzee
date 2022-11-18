@@ -19,19 +19,19 @@ public class MainController extends AbstractController implements ActionListener
 
     public MainController(MainView view, MainModel model) {
         super(view, model);
-        initController();
-        start();
+        initSubControllers();
+        startGame();
     }
 
     /**
      * <p>The main function that controls the flow of the applications.</p>
      */
-    private void start() {
+    private void startGame() {
         // auto-sizing the game based on screen size:
         getWindowController().scaleView(new ComponentEvent(view, ComponentEvent.COMPONENT_RESIZED));
         view.setVisible(true);
 
-        // creating timer, think og this as an alternative to a tradional game's while loop
+        // creating timer, think of this as an alternative to a traditional game loop
         Timer timer = new Timer(0, this);
         timer.start();
     }
@@ -40,11 +40,11 @@ public class MainController extends AbstractController implements ActionListener
     public void actionPerformed(ActionEvent e) {
         // update the score label
         if (model.gameStarted) {
-            view.getScoreLabel().setText("Sum of all dice: " + model.getSumOfAllDice());
+            view.setTitle("Sum of all dice: " + model.getSumOfAllDice());
         }
     }
 
-    private void initController() {
+    private void initSubControllers() {
         // registering the sub-controllers to the main controller:
         registerController(new MouseController(view, model));
         registerController(new KeyboardController(view, model));
@@ -83,7 +83,6 @@ public class MainController extends AbstractController implements ActionListener
             windowController = (WindowController) controller;
         }
     }
-
 
     // getters for sub-controllers
     public MouseController getMouseController() {

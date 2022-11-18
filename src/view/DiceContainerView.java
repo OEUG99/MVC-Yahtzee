@@ -15,6 +15,7 @@ public class DiceContainerView extends JPanel {
 
     public DiceContainerView() {
         super();
+        setBackground(new Color(0x5fb061));
 
         dice = new DiceView[5];
         for (int i = 0; i < 5; i++) {
@@ -22,9 +23,9 @@ public class DiceContainerView extends JPanel {
             add(dice[i]);
         }
 
-        button = new JButton("Roll All DiceView");
-        button.setPreferredSize(new Dimension(100,100));
-        button.setBackground(new Color(0x6AA4FF));
+
+        button = new JButton("Roll All Dice");
+        button.setBackground(new Color(0x5F8D4E));
         add(button);
     }
 
@@ -45,8 +46,6 @@ public class DiceContainerView extends JPanel {
         for (int i = 0; i < 5; i++) {
             dice[i].updateSize(size);
         }
-        // update button size
-        // todo: make the button look nicer
         button.setPreferredSize(size);
     }
 

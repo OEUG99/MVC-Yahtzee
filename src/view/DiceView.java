@@ -18,21 +18,18 @@ public class DiceView extends JPanel {
 
         // get the height and width of frame
 
-        Dimension size = new Dimension(85, 85);
         this.id = id;
 
         // set the size of the DiceView panel
-        setPreferredSize(size);
         setOpaque(true);
-        setBackground(Color.WHITE);
-        setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        setBackground(new Color(0xE7D39B));
+        //setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         // create a dice label that is in the direct center of this dice object:
         diceLabel = new JLabel("Roll Me!");
         diceLabel.setHorizontalAlignment(JLabel.CENTER);
         diceLabel.setVerticalAlignment(JLabel.CENTER);
         //diceLabel.setFont(new Font("Arial", Font.PLAIN, 50));
-        diceLabel.setPreferredSize(size);
 
         add(diceLabel);
     }
@@ -55,9 +52,9 @@ public class DiceView extends JPanel {
 
     public void setLocked(boolean state) {
         if (state) {
-            setBackground(Color.GRAY);
+            setBackground(new Color(0xFF6C603B, true));
         } else {
-            setBackground(Color.WHITE);
+            setBackground(new Color(0xE7D39B));
         }
     }
 }
