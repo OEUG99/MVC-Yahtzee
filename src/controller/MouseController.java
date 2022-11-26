@@ -11,7 +11,7 @@ import java.awt.event.*;
 public class MouseController extends AbstractController implements MouseMotionListener, MouseListener {
 
 
-    public MouseController(MainView view, MainModel model) {
+    public MouseController(MainView view, MainModel model, MainController controller) {
         super(view, model);
     }
 

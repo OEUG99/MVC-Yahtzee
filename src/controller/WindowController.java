@@ -13,7 +13,7 @@ import java.awt.event.ComponentListener;
  */
 public class WindowController extends AbstractController implements ComponentListener {
 
-    public WindowController(MainView mainView, MainModel mainModel) {
+    public WindowController(MainView mainView, MainModel mainModel, MainController controller) {
         super(mainView, mainModel);
     }
 

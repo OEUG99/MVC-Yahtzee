@@ -8,7 +8,7 @@ import java.awt.event.KeyListener;
 
 public class KeyboardController extends AbstractController implements KeyListener {
 
-    public KeyboardController(MainView view, MainModel model) {
+    public KeyboardController(MainView view, MainModel model, MainController controller) {
         super(view, model);
     }
 

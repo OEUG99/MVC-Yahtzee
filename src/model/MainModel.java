@@ -1,5 +1,7 @@
 package model;
 
+import controller.MusicController;
+
 import java.util.Random;
 
 public class MainModel {
@@ -41,4 +43,5 @@ public class MainModel {
         }
         return Integer.toString(sum);
     }
+
 }

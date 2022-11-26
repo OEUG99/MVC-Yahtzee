@@ -16,6 +16,8 @@ public class MainController extends AbstractController implements ActionListener
     ButtonController buttonController;
     WindowController windowController;
 
+    MusicController musicController;
+
 
     public MainController(MainView view, MainModel model) {
         super(view, model);
@@ -36,20 +38,26 @@ public class MainController extends AbstractController implements ActionListener
         timer.start();
     }
 
+    public void changeTurn() {
+        getButtonController().resetRollButton();
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         // update the score label
         if (model.gameStarted) {
             view.setTitle("Sum of all dice: " + model.getSumOfAllDice());
         }
+
     }
 
     private void initSubControllers() {
         // registering the sub-controllers to the main controller:
-        registerController(new MouseController(view, model));
-        registerController(new KeyboardController(view, model));
-        registerController(new ButtonController(view, model));
-        registerController(new WindowController(view, model));
+        registerController(new MusicController(view, model, this));
+        registerController(new MouseController(view, model, this));
+        registerController(new KeyboardController(view, model, this));
+        registerController(new ButtonController(view, model, this));
+        registerController(new WindowController(view, model, this));
 
         // We can now assign specific sub-controllers to the view of different components.
         // First lets assigning the mouse sub-controller to the DiceContainerView:
@@ -73,7 +81,11 @@ public class MainController extends AbstractController implements ActionListener
     }
 
     private void registerController(AbstractController controller) {
-        if (controller instanceof MouseController) {
+
+        if (controller instanceof MusicController) { // music has to go first since other controllers talk to it.
+            musicController = (MusicController) controller;
+        }
+        else if (controller instanceof MouseController) {
             mouseController = (MouseController) controller;
         } else if (controller instanceof KeyboardController) {
             keyboardController = (KeyboardController) controller;
@@ -101,4 +113,7 @@ public class MainController extends AbstractController implements ActionListener
         return windowController;
     }
 
+    public MusicController getMusicController() {
+        return musicController;
+    }
 }
