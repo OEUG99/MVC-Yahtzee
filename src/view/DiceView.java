@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * This class is the view for the dice
- * It is a button that can be clicked to roll the dice
+ * This class is the view for the dice portion of the gui.
+ * It contains a button that can be clicked to roll the dice
  * It also displays the value of the dice
  */
 public class DiceView extends JPanel {
