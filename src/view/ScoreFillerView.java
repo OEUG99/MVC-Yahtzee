@@ -13,7 +13,8 @@ public class ScoreFillerView extends JPanel {
     public ScoreFillerView(String tag) {
         super();
         setOpaque(false);
-        scoreFiller = new JTextField();
+        scoreFiller = new JTextField("    ");
+        scoreFiller.setEditable(false);
         scoreFillerTag = new JLabel(tag);
         add(scoreFillerTag);
         add(scoreFiller);

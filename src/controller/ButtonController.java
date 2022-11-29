@@ -19,7 +19,7 @@ public class ButtonController extends AbstractControllerListener {
     }
 
     /**
-     * Called from the main view, whenever a turn is over.
+     * Called from the main controller, whenever a turn is over.
      */
     public void resetRollButton() {
         rollsLeft = 3;
@@ -53,5 +53,9 @@ public class ButtonController extends AbstractControllerListener {
             }
         }
 
+    }
+
+    public int returnRolls() {
+        return rollsLeft;
     }
 }

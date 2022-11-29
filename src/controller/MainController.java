@@ -49,6 +49,14 @@ public class MainController extends AbstractController implements ActionListener
             view.setTitle("Sum of all dice: " + model.getSumOfAllDice());
         }
 
+        // Temporary implement for restarting turns
+        int returnedRolls = getButtonController().returnRolls();
+
+        if (returnedRolls == 0) {
+            String scoreNumber = JOptionPane.showInputDialog(view , "Input where in the Scoreboard to put your Score.", null);
+            changeTurn();
+        }
+
     }
 
     private void initSubControllers() {

@@ -6,10 +6,9 @@ import java.util.Random;
 
 public class MainModel {
 
-    // some data structure that stores yahtzee scores. An array of x arrays
-    // where x is the number of players. Each array contains 13 elements
-    // representing the 13 possible scores, etc.
-    private int[][] scores;
+    // Planned to be an array of x arrays where x is the 
+    // number of players, just one for now
+    private ScoreModel [][] scores = new ScoreModel[17][1];
 
     public DiceModel [] dice = new DiceModel[5];
 
