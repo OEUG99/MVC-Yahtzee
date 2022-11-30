@@ -7,7 +7,7 @@ public class MainView extends JFrame{
 
     private DiceContainerView diceContainerView;
     private JLabel scoreLabel;
-    private ScoreboardContainerView scoreboardContainerView;
+    private ScoreboardView scoreboardView;
 
 
     public MainView() {
@@ -20,7 +20,7 @@ public class MainView extends JFrame{
         setSize(monitorSize.width, monitorSize.height);
 
 
-        // setting a minium size for the application, so we cant scale it below that point
+        // setting a min size for the application, so we cant scale it below that point
         setMinimumSize(new Dimension(300, 300));
 
 
@@ -30,17 +30,8 @@ public class MainView extends JFrame{
         this.diceContainerView = new DiceContainerView();
         add(diceContainerView, BorderLayout.SOUTH);
 
-        /*
-        scoreLabel = new JLabel("Welcome to Yahtzee!");
-        scoreLabel.setHorizontalAlignment(JLabel.CENTER);
-        scoreLabel.setVerticalAlignment(JLabel.CENTER);
-        scoreLabel.setFont(new Font("Arial", Font.PLAIN, 50));
-        add(scoreLabel, BorderLayout.NORTH);
-
-         */
-
-        this.scoreboardContainerView = new ScoreboardContainerView();
-        add(scoreboardContainerView, BorderLayout.CENTER);
+        this.scoreboardView = new ScoreboardView();
+        add(scoreboardView, BorderLayout.CENTER);
 
     }
 
@@ -52,7 +43,7 @@ public class MainView extends JFrame{
         return scoreLabel;
     }
 
-    public ScoreboardContainerView getScoreboardContainer() {
-        return scoreboardContainerView;
+    public ScoreboardView getScoreboardView() {
+        return scoreboardView;
     }
 }

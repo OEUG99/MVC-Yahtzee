@@ -14,8 +14,6 @@ public class ButtonController extends AbstractControllerListener {
     public ButtonController(MainView view, MainModel model, MainController controller) {
         super(view, model);
         musicController = controller.getMusicController();
-
-
     }
 
     /**
@@ -52,6 +50,10 @@ public class ButtonController extends AbstractControllerListener {
                 view.getDiceContainer().getDice(i).setDiceText(model.getDice(i).getValue());
             }
         }
+
+        //
+        System.out.println(e.getSource());
+
 
     }
 

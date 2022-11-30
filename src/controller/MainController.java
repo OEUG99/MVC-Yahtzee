@@ -39,7 +39,9 @@ public class MainController extends AbstractController implements ActionListener
     }
 
     public void changeTurn() {
+
         getButtonController().resetRollButton();
+        view.getDiceContainer().getButton().setText("Roll All Dice");
     }
 
     @Override
@@ -85,6 +87,11 @@ public class MainController extends AbstractController implements ActionListener
         for (int i = 0; i < 5; i++) {
             // Since the dice are stored in teh dice container, we access it through that, then assign the controller:
             view.getDiceContainer().getDice(i).addMouseListener(getMouseController());
+        }
+
+        for (int i = 0; i < 15; i++){
+            JButton button = view.getScoreboardView().getScoreContainerView().getScoreArray()[i].getScoreButton();
+            button.addActionListener(getButtonController());
         }
     }
 

@@ -39,12 +39,22 @@ public class WindowController extends AbstractController implements ComponentLis
         Dimension diceSize = new Dimension(getSmallestDimension()/7, getSmallestDimension()/7);
         Dimension ScoreBoardContainerSize = new Dimension(view.getWidth()/2,  view.getHeight()/2);
         Dimension scoreboxesSize = new Dimension();
+        Dimension scoreButtonSize = new Dimension();
         scoreboxesSize.setSize(view.getWidth()/1.05, view.getHeight()/1.55);
+        scoreButtonSize.setSize(scoreboxesSize.getWidth()/3, scoreboxesSize.getHeight()/9);
 
         // setting the preferred size on all the dice components
         view.getDiceContainer().updateSize(diceSize);
-        view.getScoreboardContainer().updateSize(ScoreBoardContainerSize);
-        view.getScoreboardContainer().updateChildPanelSize(scoreboxesSize);
+        view.getScoreboardView().updateSize(ScoreBoardContainerSize);
+        view.getScoreboardView().updateChildPanelSize(scoreboxesSize);
+
+        // scalling the scoreboard text
+        for (int i = 0; i < view.getScoreboardView().getScoreContainerView().getScoreArray().length; i++) {
+            view.getScoreboardView().getScoreContainerView().getScoreArray()[i].updateFontSize(scoreButtonSize);
+        }
+
+
+
     }
 
     // find the smallest of the width or height:

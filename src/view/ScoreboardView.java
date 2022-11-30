@@ -6,13 +6,12 @@ import java.awt.*;
 /**
  * This class contains all components used in the scoreboard section of the GUI.
  */
-public class ScoreboardContainerView extends JPanel {
+public class ScoreboardView extends JPanel {
 
-    JPanel scoreFillerContainer;
-    // inner class for JPanel
+    ScoreContainerView scoreContainer;
 
 
-    public ScoreboardContainerView() {
+    public ScoreboardView() {
         super();
         this.setLayout(new GridBagLayout());
         setBackground(new Color(0xA4BE7B));
@@ -21,10 +20,10 @@ public class ScoreboardContainerView extends JPanel {
         ct.gridx = 0;
         ct.gridy = 0;
 
-        scoreFillerContainer = new ScoreFillerContainerView();
-        scoreFillerContainer.setBackground(new Color(0xE5D9B6));
+        scoreContainer = new ScoreContainerView();
+        scoreContainer.setBackground(new Color(0xE5D9B6));
 
-        this.add(scoreFillerContainer, ct);
+        this.add(scoreContainer, ct);
     }
 
     public void paintComponent(Graphics g) {
@@ -36,7 +35,12 @@ public class ScoreboardContainerView extends JPanel {
     }
 
     public void updateChildPanelSize(Dimension size) {
-        scoreFillerContainer.setPreferredSize(size);
+        scoreContainer.setPreferredSize(size);
         setPreferredSize(size);
     }
+
+    public ScoreContainerView getScoreContainerView() {
+        return scoreContainer;
+    }
+
 }
