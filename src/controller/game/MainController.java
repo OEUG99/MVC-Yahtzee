@@ -4,6 +4,7 @@ import model.MainModel;
 import view.game.MainView;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
@@ -42,6 +43,13 @@ public class MainController extends AbstractController implements ActionListener
 
         getButtonController().resetRollButton();
         view.getDiceContainer().getButton().setText("Roll All Dice");
+        for (int i = 0; i < 5; i++) {
+
+            //view.getDiceContainer().getDice(i).setFont();
+            view.getDiceContainer().getDice(i).getDiceLabel().setFont(new Font("Arial", Font.BOLD, 13));
+            view.getDiceContainer().getDice(i).setDiceText("Roll Me!");
+            view.getDiceContainer().getDice(i).setLocked(false);
+        }
     }
 
     @Override

@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class MainModel {
 
+    public boolean fancyDiceMode = false;
     // Planned to be an array of x arrays where x is the
     // number of players, just one for now
     private ScoreModel [][] scores = new ScoreModel[17][1];
@@ -47,5 +48,9 @@ public class MainModel {
 
     public int getNumPlayers() {
         return numPlayers;
+    }
+
+    public boolean getFancyDiceMode(){
+        return fancyDiceMode;
     }
 }

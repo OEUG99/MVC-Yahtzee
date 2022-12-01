@@ -19,7 +19,6 @@ public class LaunchMenuView extends JFrame {
         Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
         //setSize(monitorSize.width /3, monitorSize.height/3); // we offset height by 1/8 due to taskbar
 
-
         this.panel = new JPanel();
         this.numPlayersText = new JLabel("Type the number of player, then click the start button.");
         this.textField = new JTextField(4);

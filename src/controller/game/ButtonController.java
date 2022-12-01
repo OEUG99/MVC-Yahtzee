@@ -3,6 +3,7 @@ package controller.game;
 import model.MainModel;
 import view.game.MainView;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class ButtonController extends AbstractControllerListener {
@@ -62,10 +63,20 @@ public class ButtonController extends AbstractControllerListener {
 
             model.gameStarted = true; // if we roll all teh dice, we know the game started.
 
+
             // roll every dice
             for (int i = 0; i < 5; i++) {
                 model.getDice(i).roll();
-                view.getDiceContainer().getDice(i).setDiceText(model.getDice(i).getValue());
+                // fancy large arial font
+                view.getDiceContainer().getDice(i).getDiceLabel().setFont(new Font("Arial", Font.BOLD, 32));
+
+                if(model.getFancyDiceMode()){
+                    view.getDiceContainer().getDice(i).setFancyDice(Integer.parseInt(model.getDice(i).getValue()));
+                } else {
+                    view.getDiceContainer().getDice(i).setDiceText(model.getDice(i).getValue());
+                }
+
+
             }
         }
 

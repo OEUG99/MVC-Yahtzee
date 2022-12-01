@@ -6,7 +6,6 @@ import java.awt.*;
 public class MainView extends JFrame{
 
     private DiceContainerView diceContainerView;
-    private JLabel scoreLabel;
     private ScoreboardView scoreboardView;
 
 
