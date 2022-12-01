@@ -55,7 +55,7 @@ public class MainController extends AbstractController implements ActionListener
         int returnedRolls = getButtonController().returnRolls();
 
         if (returnedRolls == 0) {
-            String scoreNumber = JOptionPane.showInputDialog(view , "Input where in the Scoreboard to put your Score.", null);
+            // String scoreNumber = JOptionPane.showInputDialog(view , "Input where in the Scoreboard to put your Score.", null);
             changeTurn();
         }
 
@@ -89,7 +89,7 @@ public class MainController extends AbstractController implements ActionListener
             view.getDiceContainer().getDice(i).addMouseListener(getMouseController());
         }
 
-        for (int i = 0; i < 15; i++){
+        for (int i = 0; i < 17; i++){
             JButton button = view.getScoreboardView().getScoreContainerView().getScoreArray()[i].getScoreButton();
             button.addActionListener(getButtonController());
         }

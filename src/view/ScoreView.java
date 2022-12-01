@@ -16,7 +16,7 @@ public class ScoreView extends JPanel {
         setOpaque(false);
         setBackground(new Color(0xE5D9B6));
         setPreferredSize(new Dimension(150, 150));
-        scoreButton = new JButton();
+        scoreButton = new JButton("Score here.");
         scoreButton.setEnabled(true);
         scoreButtonTag = new JLabel(tag);
         add(scoreButtonTag);
