@@ -33,7 +33,8 @@ public class MainController extends AbstractController implements ActionListener
         getWindowController().scaleView(new ComponentEvent(view, ComponentEvent.COMPONENT_RESIZED));
         view.setVisible(true);
 
-        // creating timer, think of this as an alternative to a traditional game loop
+        // creating timer, think of this as an alternative to a traditional game loop. We will set delay to '1' not '0'
+        // to avoid hogging CPU. This delay should be fast enough for our purposes.
         Timer timer = new Timer(1, this);
         timer.start();
     }
