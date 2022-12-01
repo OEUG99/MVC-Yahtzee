@@ -14,13 +14,11 @@ public class MainView extends JFrame{
         super("Yahtzee");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Setting window size to size of monitor:
         // TODO fix the bug caused by screen size != usable screen size (taskbar, etc.).
         Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
-        setSize(monitorSize.width, monitorSize.height);
+        setSize(monitorSize.width, monitorSize.height-(monitorSize.height/8)); // we offset height by 1/8 due to taskbar
 
 
-        // setting a min size for the application, so we cant scale it below that point
         setMinimumSize(new Dimension(300, 300));
 
 
