@@ -12,7 +12,7 @@ public class Yahtzee {
 
         // create launch menu
         LaunchMenuView launchMenuView = new LaunchMenuView();
-        LaunchController LaunchMenuController = new LaunchController(launchMenuView, model);
+        LaunchController launchMenuController = new LaunchController(launchMenuView, model);
 
 
 
