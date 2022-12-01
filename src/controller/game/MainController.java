@@ -1,7 +1,7 @@
-package controller;
+package controller.game;
 
 import model.MainModel;
-import view.MainView;
+import view.game.MainView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -49,7 +49,8 @@ public class MainController extends AbstractController implements ActionListener
     public void actionPerformed(ActionEvent e) {
         // update the score label
         if (model.gameStarted) {
-            view.setTitle("Sum of all dice: " + model.getSumOfAllDice());
+            //view.setTitle("Sum of all dice: " + model.getSumOfAllDice());
+            view.setVisible(true);
         }
 
         // Temporary implement for restarting turns

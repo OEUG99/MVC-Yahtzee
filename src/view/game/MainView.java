@@ -1,4 +1,4 @@
-package view;
+package view.game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +30,6 @@ public class MainView extends JFrame{
 
         this.scoreboardView = new ScoreboardView();
         add(scoreboardView, BorderLayout.CENTER);
-
     }
 
     public DiceContainerView getDiceContainer() {

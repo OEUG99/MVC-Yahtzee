@@ -1,7 +1,7 @@
-package controller;
+package controller.game;
 
 import model.MainModel;
-import view.MainView;
+import view.game.MainView;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

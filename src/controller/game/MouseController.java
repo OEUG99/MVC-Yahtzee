@@ -1,9 +1,9 @@
-package controller;
+package controller.game;
 
 import model.DiceModel;
 import model.MainModel;
-import view.DiceView;
-import view.MainView;
+import view.game.DiceView;
+import view.game.MainView;
 
 import java.awt.event.*;
 

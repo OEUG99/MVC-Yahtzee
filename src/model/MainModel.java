@@ -1,12 +1,10 @@
 package model;
 
-import controller.MusicController;
-
 import java.util.Random;
 
 public class MainModel {
 
-    // Planned to be an array of x arrays where x is the 
+    // Planned to be an array of x arrays where x is the
     // number of players, just one for now
     private ScoreModel [][] scores = new ScoreModel[17][1];
 
@@ -14,6 +12,8 @@ public class MainModel {
 
 
     public Boolean gameStarted = false;
+
+    private int numPlayers;
 
 
     public MainModel() {
@@ -23,6 +23,10 @@ public class MainModel {
             dice[i] = new DiceModel(i);
         }
 
+    }
+
+    public void setNumPlayers(int i) {
+        this.numPlayers = i;
     }
 
     public DiceModel getDice(int diceId) {
@@ -43,4 +47,7 @@ public class MainModel {
         return Integer.toString(sum);
     }
 
+    public int getNumPlayers() {
+        return numPlayers;
+    }
 }

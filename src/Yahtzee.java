@@ -1,15 +1,25 @@
-
-import controller.*;
+import controller.game.MainController;
+import controller.launcher.LaunchController;
 import model.MainModel;
-import view.MainView;
+import view.game.MainView;
+import view.launcher.LaunchMenuView;
 
 public class Yahtzee {
     public static void main(String[] args) {
-        // print pwd
+
+
         MainModel model = new MainModel();
+
+        // create launch menu
+        LaunchMenuView launchMenuView = new LaunchMenuView();
+        LaunchController LaunchMenuController = new LaunchController(launchMenuView, model);
+
+
+
+
         MainView view = new MainView();
         MainController controller = new MainController(view, model);
-        view.validate();
+        view.setVisible(false);
 
     }
 }

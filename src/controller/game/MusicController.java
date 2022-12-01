@@ -1,7 +1,7 @@
-package controller;
+package controller.game;
 
 import model.MainModel;
-import view.MainView;
+import view.game.MainView;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.Objects;
 
 // free music was taken from: https://www.youtube.com/watch?v=DVEUcbPkb-c
-public class MusicController extends AbstractController{
+public class MusicController extends AbstractController {
 
     public MusicController(MainView view, MainModel model, MainController controller) {
         super(view, model);
