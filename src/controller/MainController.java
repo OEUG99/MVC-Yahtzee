@@ -34,7 +34,7 @@ public class MainController extends AbstractController implements ActionListener
         view.setVisible(true);
 
         // creating timer, think of this as an alternative to a traditional game loop
-        Timer timer = new Timer(0, this);
+        Timer timer = new Timer(1, this);
         timer.start();
     }
 
