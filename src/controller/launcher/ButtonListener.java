@@ -19,7 +19,7 @@ public class ButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {;
 
         if(e.getSource() == view.getButton()) {
-            // if e is an number of any size
+            // if the user inputted an integer
             if (view.getTextField().matches("^[0-9]+$")) {
                 model.setNumPlayers(Integer.parseInt(view.getTextField()));
                 System.out.println(model.getNumPlayers());

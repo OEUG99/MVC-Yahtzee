@@ -18,7 +18,6 @@ public class MainModel {
 
     public MainModel() {
 
-        // Instantiate the dice
         for (int i = 0; i < 5; i++) {
             dice[i] = new DiceModel(i);
         }
@@ -34,7 +33,6 @@ public class MainModel {
         return dice[diceId];
     }
     public String getRandomNumber() {
-        // return a random number between 1 and 6
         int ran = new Random().nextInt(6) + 1;
         return Integer.toString(ran);
     }

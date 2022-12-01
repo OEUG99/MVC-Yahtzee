@@ -9,9 +9,7 @@ import java.awt.*;
 public class DiceContainerView extends JPanel {
 
    private DiceView[] dice;
-
     public JButton button;
-
 
     public DiceContainerView() {
         super();

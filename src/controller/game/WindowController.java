@@ -57,7 +57,6 @@ public class WindowController extends AbstractController implements ComponentLis
 
     }
 
-    // find the smallest of the width or height:
     private int getSmallestDimension() {
         return Math.min(view.getWidth(), view.getHeight());
     }

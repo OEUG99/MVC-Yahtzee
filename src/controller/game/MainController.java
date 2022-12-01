@@ -15,7 +15,6 @@ public class MainController extends AbstractController implements ActionListener
     KeyboardController keyboardController;
     ButtonController buttonController;
     WindowController windowController;
-
     MusicController musicController;
 
 
@@ -57,7 +56,6 @@ public class MainController extends AbstractController implements ActionListener
         int returnedRolls = getButtonController().returnRolls();
 
         if (returnedRolls == 0) {
-            // String scoreNumber = JOptionPane.showInputDialog(view , "Input where in the Scoreboard to put your Score.", null);
             changeTurn();
         }
 

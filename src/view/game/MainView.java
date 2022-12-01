@@ -14,14 +14,10 @@ public class MainView extends JFrame{
         super("Yahtzee");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // TODO fix the bug caused by screen size != usable screen size (taskbar, etc.).
         Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
-        setSize(monitorSize.width, monitorSize.height-(monitorSize.height/8)); // we offset height by 1/8 due to taskbar
-
+        setSize(monitorSize.width, monitorSize.height-(monitorSize.height/8)); // we offset height by 1/8 due to taskbar (thanks Dr. Myers for the advice)
 
         setMinimumSize(new Dimension(300, 300));
-
-
 
         setLayout(new BorderLayout());
 
@@ -34,10 +30,6 @@ public class MainView extends JFrame{
 
     public DiceContainerView getDiceContainer() {
         return diceContainerView;
-    }
-
-    public JLabel getScoreLabel() {
-        return scoreLabel;
     }
 
     public ScoreboardView getScoreboardView() {
