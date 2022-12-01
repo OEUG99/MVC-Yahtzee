@@ -7,7 +7,7 @@ public class DiceModel {
     boolean isLocked = false;
 
     public DiceModel(int id) {
-        roll(); // new dice are created with a random number.
+        roll();
         this.id = id;
     }
 
