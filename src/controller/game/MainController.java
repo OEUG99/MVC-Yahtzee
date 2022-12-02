@@ -63,7 +63,7 @@ public class MainController extends AbstractController implements ActionListener
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // update the score label
+
         if (model.gameStarted) {
             if (model.getNumPlayers() > 1){
                 int curPlayer = model.getCurPlayer() + 1;
