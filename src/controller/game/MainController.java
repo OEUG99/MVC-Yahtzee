@@ -42,13 +42,17 @@ public class MainController extends AbstractController implements ActionListener
     public void changeTurn() {
 
         getButtonController().resetRollButton();
-        view.getDiceContainer().getButton().setText("Roll All Dice");
+        view.getDiceContainer().getButton().setText("Roll the Dice");
         for (int i = 0; i < 5; i++) {
 
             //view.getDiceContainer().getDice(i).setFont();
             view.getDiceContainer().getDice(i).getDiceLabel().setFont(new Font("Arial", Font.BOLD, 13));
             view.getDiceContainer().getDice(i).setDiceText("Roll Me!");
             view.getDiceContainer().getDice(i).setLocked(false);
+            getButtonController().changeScoreBoardPressed();
+            for (int j = 0; j < 17; j++) {
+                    view.getScoreboardView().getScoreContainerView().getScoreArray()[j].getScoreButton().setEnabled(false);
+            }
         }
     }
 
@@ -64,7 +68,9 @@ public class MainController extends AbstractController implements ActionListener
         int returnedRolls = getButtonController().returnRolls();
 
         if (returnedRolls == 0) {
-            changeTurn();
+            if (getButtonController().getScoreBoardPressed() == true){
+                changeTurn();
+            }
         }
 
     }
@@ -93,7 +99,7 @@ public class MainController extends AbstractController implements ActionListener
 
         // Now let's, assigning the mouse sub-controller to the individual dice:
         for (int i = 0; i < 5; i++) {
-            // Since the dice are stored in teh dice container, we access it through that, then assign the controller:
+            // Since the dice are stored in the dice container, we access it through that, then assign the controller:
             view.getDiceContainer().getDice(i).addMouseListener(getMouseController());
         }
 

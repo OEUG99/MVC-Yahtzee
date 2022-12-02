@@ -8,7 +8,6 @@ public class MainView extends JFrame{
     private DiceContainerView diceContainerView;
     private ScoreboardView scoreboardView;
 
-
     public MainView() {
         super("Yahtzee");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

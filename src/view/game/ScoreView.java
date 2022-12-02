@@ -17,7 +17,7 @@ public class ScoreView extends JPanel {
         setBackground(new Color(0xE5D9B6));
         setPreferredSize(new Dimension(150, 150));
         scoreButton = new JButton("Score here.");
-        scoreButton.setEnabled(true);
+        scoreButton.setEnabled(false);
         scoreButtonTag = new JLabel(tag);
         add(scoreButtonTag);
         add(scoreButton);
@@ -35,5 +35,9 @@ public class ScoreView extends JPanel {
 
     public JButton getScoreButton() {
         return scoreButton;
+    }
+
+    public String getScoreHere() {
+        return scoreButton.getText();
     }
 }
