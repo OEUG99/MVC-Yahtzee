@@ -15,7 +15,7 @@ public class MainView extends JFrame{
         Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
         setSize(monitorSize.width, monitorSize.height-(monitorSize.height/8)); // we offset height by 1/8 due to taskbar (thanks Dr. Myers for the advice)
 
-        setMinimumSize(new Dimension(300, 300));
+        setMinimumSize(new Dimension(400, 400));
 
         setLayout(new BorderLayout());
 
