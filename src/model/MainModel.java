@@ -5,9 +5,7 @@ import java.util.Random;
 public class MainModel {
 
     public boolean fancyDiceMode = false;
-    // Planned to be an array of x arrays where x is the
-    // number of players, just one for now
-    private ScoreModel [][] scores = new ScoreModel[17][1];
+    public ScoreModel[] scoreModels;
 
 
     public DiceModel [] dice = new DiceModel[5];
@@ -29,6 +27,7 @@ public class MainModel {
 
     public void setNumPlayers(int i) {
         this.numPlayers = i;
+        this.scoreModels = new ScoreModel[i];
     }
 
     public DiceModel getDice(int diceId) {
