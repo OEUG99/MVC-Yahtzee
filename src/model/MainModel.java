@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Random;
-
 public class MainModel {
 
     public boolean fancyDiceMode = false;
@@ -25,9 +23,15 @@ public class MainModel {
 
     }
 
-    public void setNumPlayers(int i) {
-        this.numPlayers = i;
-        this.scoreModels = new ScoreModel[i];
+    public void setNumPlayers(int val) {
+        this.numPlayers = val;
+        this.scoreModels = new ScoreModel[val];
+
+        // initializing the arrays to -1 in each element
+        for (int i = 0; i < val; i++) {
+            scoreModels[i] = new ScoreModel();
+            scoreModels[i].defaultScore();
+        }
     }
 
     public DiceModel getDice(int diceId) {
@@ -55,15 +59,11 @@ public class MainModel {
         curPlayer = (curPlayer + 1) % numPlayers;
     }
 
-    public String getCurPlayer() {
-        return Integer.toString(curPlayer);
-    }
-
-    public int getCurPlayerInt() {
+    public int getCurPlayer() {
         return curPlayer;
     }
 
-    public ScoreModel getScoreModel(int player) {
-        return scoreModels[player];
+    public ScoreModel getScoreModel(int index) {
+        return scoreModels[index];
     }
 }

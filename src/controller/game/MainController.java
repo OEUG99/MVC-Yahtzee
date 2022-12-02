@@ -65,7 +65,12 @@ public class MainController extends AbstractController implements ActionListener
     public void actionPerformed(ActionEvent e) {
         // update the score label
         if (model.gameStarted) {
-            view.setTitle("Yahtzee - Current Player: " + model.getCurPlayer());
+            if (model.getNumPlayers() > 1){
+                int curPlayer = model.getCurPlayer() + 1;
+                view.setTitle("Yahtzee - Current Player: " + curPlayer);
+            } else {
+                view.setTitle("Yahtzee - Single Player");
+            }
             view.setVisible(true);
         }
 
