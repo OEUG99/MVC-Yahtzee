@@ -5,8 +5,8 @@ import java.util.Random;
 public class MainModel {
 
     public boolean fancyDiceMode = false;
+    
     public ScoreModel[] scoreModels;
-
 
     public DiceModel [] dice = new DiceModel[5];
 
@@ -57,5 +57,13 @@ public class MainModel {
 
     public String getCurPlayer() {
         return Integer.toString(curPlayer);
+    }
+
+    public int getCurPlayerInt() {
+        return curPlayer;
+    }
+
+    public ScoreModel getScoreModel(int player) {
+        return scoreModels[player];
     }
 }
