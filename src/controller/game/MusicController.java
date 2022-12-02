@@ -3,6 +3,7 @@ package controller.game;
 import model.MainModel;
 import view.game.MainView;
 
+import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.net.URL;
@@ -29,7 +30,9 @@ public class MusicController extends AbstractController {
             clip.open(AudioSystem.getAudioInputStream(url));
 
             if (pitchViration) {
-                // todo maybe write some code that slightly changes the sound.
+                // https://docs.oracle.com/javase/7/docs/api/javax/sound/sampled/AudioSystem.html
+                // todo maybe write some code that slightly changes the sound, so the voice doesnt
+                // always sound the same
             }
 
             clip.start();

@@ -12,19 +12,14 @@ public class ButtonController extends AbstractControllerListener {
 
     private MusicController musicController;
 
+    private MainController controller;
+
     public ButtonController(MainView view, MainModel model, MainController controller) {
         super(view, model);
+        this.controller = controller;
         musicController = controller.getMusicController();
     }
 
-    /**
-     * Called from the main controller, whenever a turn is over.
-     */
-    public void resetRollButton() {
-        rollsLeft = 3;
-        view.getDiceContainer().getButton().setEnabled(true);
-
-    }
 
     boolean scoreBoardPressed = false;
 
@@ -97,21 +92,28 @@ public class ButtonController extends AbstractControllerListener {
             rollsLeft--;
             view.getDiceContainer().getButton().setText("rolls Left: " + rollsLeft);
 
-            if (rollsLeft == 0) {
+            if (rollsLeft == 0) { // todo make it show the scorebuttons are always usable but change turns
                 view.getDiceContainer().getButton().setEnabled(false);
-                for (int i = 0; i < 15; i++) {
-                    if (i != 6 && i != 7) {
-                        if (view.getScoreboardView().getScoreContainerView().getScoreArray()[i].getScoreHere() == "Score here."){
-                            view.getScoreboardView().getScoreContainerView().getScoreArray()[i].getScoreButton().setEnabled(true);
-                        }
-                    }
-                }
+
+
             }
 
             model.gameStarted = true; // if we roll all the dice, we know the game started.
 
+            // enable all 15 of the scores
+            for (int i = 0; i < 15; i++) {
+                if (i != 6 && i != 7) { // we ignore 6 and 7th
+                    if (view.getScoreboardView().getScoreContainerView().getScoreArray()[i].getScoreHere() == "Score here."){
+                        view.getScoreboardView().getScoreContainerView().getScoreArray()[i].getScoreButton().setEnabled(true);
+                    }
+                }
+            }
+
+
             // roll every dice
             for (int i = 0; i < 5; i++) {
+
+
                 model.getDice(i).roll();
                 // fancy large arial font
                 view.getDiceContainer().getDice(i).getDiceLabel().setFont(new Font("Arial", Font.BOLD, 32));
@@ -140,6 +142,8 @@ public class ButtonController extends AbstractControllerListener {
         int yahtzeeCalc = 0;
         int chanceCalc = 0;
 
+
+
         // Ones
         if (e.getSource() == view.getScoreboardView().getScoreContainerView().getScoreArray()[0].getScoreButton()) {
             for (int i = 0; i < 5; i++) {
@@ -152,6 +156,8 @@ public class ButtonController extends AbstractControllerListener {
             view.getScoreboardView().getScoreContainerView().getScoreArray()[0].getScoreButton().setEnabled(false);
             onesFinal = onesCalc;
             scoreBoardPressed = true;
+            disableScoreButtons();
+
             calcTotals();
         }
 
@@ -167,6 +173,7 @@ public class ButtonController extends AbstractControllerListener {
             view.getScoreboardView().getScoreContainerView().getScoreArray()[1].getScoreButton().setEnabled(false);
             twosFinal = twosCalc;
             scoreBoardPressed = true;
+            disableScoreButtons();
             calcTotals();
         }
 
@@ -182,6 +189,7 @@ public class ButtonController extends AbstractControllerListener {
             view.getScoreboardView().getScoreContainerView().getScoreArray()[2].getScoreButton().setEnabled(false);
             threesFinal = threesCalc;
             scoreBoardPressed = true;
+            disableScoreButtons();
             calcTotals();
         }
 
@@ -197,6 +205,7 @@ public class ButtonController extends AbstractControllerListener {
             view.getScoreboardView().getScoreContainerView().getScoreArray()[3].getScoreButton().setEnabled(false);
             foursFinal = foursCalc;
             scoreBoardPressed = true;
+            disableScoreButtons();
             calcTotals();
         }
 
@@ -212,6 +221,7 @@ public class ButtonController extends AbstractControllerListener {
             view.getScoreboardView().getScoreContainerView().getScoreArray()[4].getScoreButton().setEnabled(false);
             fivesFinal = fivesCalc;
             scoreBoardPressed = true;
+            disableScoreButtons();
             calcTotals();
         }
 
@@ -227,8 +237,13 @@ public class ButtonController extends AbstractControllerListener {
             view.getScoreboardView().getScoreContainerView().getScoreArray()[5].getScoreButton().setEnabled(false);
             sixesFinal = sixesCalc;
             scoreBoardPressed = true;
+            disableScoreButtons();
             calcTotals();
         }
+
+
+
+
 
         // Three of a kind
         if (e.getSource() == view.getScoreboardView().getScoreContainerView().getScoreArray()[8].getScoreButton()) {
@@ -275,6 +290,7 @@ public class ButtonController extends AbstractControllerListener {
             view.getScoreboardView().getScoreContainerView().getScoreArray()[8].getScoreButton().setEnabled(false);
             threeOfAKindFinal = threeOfAKindCalc;
             scoreBoardPressed = true;
+            disableScoreButtons();
             calcTotals();
         }
 
@@ -323,6 +339,7 @@ public class ButtonController extends AbstractControllerListener {
             view.getScoreboardView().getScoreContainerView().getScoreArray()[9].getScoreButton().setEnabled(false);
             fourOfAKindFinal = fourOfAKindCalc;
             scoreBoardPressed = true;
+            disableScoreButtons();
             calcTotals();
         }
 
@@ -365,6 +382,7 @@ public class ButtonController extends AbstractControllerListener {
             view.getScoreboardView().getScoreContainerView().getScoreArray()[10].getScoreButton().setEnabled(false);
             fullHouseFinal = fullHouseCalc;
             scoreBoardPressed = true;
+            disableScoreButtons();
             calcTotals();
         }
 
@@ -407,6 +425,7 @@ public class ButtonController extends AbstractControllerListener {
             view.getScoreboardView().getScoreContainerView().getScoreArray()[11].getScoreButton().setEnabled(false);
             smallStraitFinal = smallStraitCalc;
             scoreBoardPressed = true;
+            disableScoreButtons();
             calcTotals();
         }
 
@@ -449,6 +468,7 @@ public class ButtonController extends AbstractControllerListener {
             view.getScoreboardView().getScoreContainerView().getScoreArray()[12].getScoreButton().setEnabled(false);
             largeStraitFinal = largeStraitCalc;
             scoreBoardPressed = true;
+            disableScoreButtons();
             calcTotals();
         }
 
@@ -491,6 +511,7 @@ public class ButtonController extends AbstractControllerListener {
             view.getScoreboardView().getScoreContainerView().getScoreArray()[13].getScoreButton().setEnabled(false);
             yahtzeeFinal = yahtzeeCalc;
             scoreBoardPressed = true;
+            disableScoreButtons();
             calcTotals();
         }
 
@@ -504,6 +525,7 @@ public class ButtonController extends AbstractControllerListener {
             view.getScoreboardView().getScoreContainerView().getScoreArray()[14].getScoreButton().setEnabled(false);
             chanceFinal = chanceCalc;
             scoreBoardPressed = true;
+            disableScoreButtons();
             calcTotals();
         }
 
@@ -515,5 +537,29 @@ public class ButtonController extends AbstractControllerListener {
 
     public int returnRolls() {
         return rollsLeft;
+    }
+
+    /**
+     * Called from the main controller, whenever a turn is over.
+     */
+    public void resetRollButton() {
+        rollsLeft = 3;
+        view.getDiceContainer().getButton().setEnabled(true);
+        view.getDiceContainer().getButton().setText("Roll Me!");
+        musicController.playSound("sounds/voicelines/next_turn.wav", false, true);
+
+    }
+
+    public void disableScoreButtons(){
+        for (int i = 0; i < 15; i++) {
+            if (i != 6 && i != 7) { // we ignore 6 and 7th
+                if (view.getScoreboardView().getScoreContainerView().getScoreArray()[i].getScoreHere() == "Score here."){
+                    view.getScoreboardView().getScoreContainerView().getScoreArray()[i].getScoreButton().setEnabled(false);
+                }
+            }
+        }
+
+       controller.changeTurn();
+
     }
 }

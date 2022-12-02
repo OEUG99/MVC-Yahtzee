@@ -41,6 +41,8 @@ public class MainController extends AbstractController implements ActionListener
 
     public void changeTurn() {
 
+        model.nextPlayer();
+
         getButtonController().resetRollButton();
         view.getDiceContainer().getButton().setText("Roll the Dice");
         for (int i = 0; i < 5; i++) {
@@ -60,7 +62,7 @@ public class MainController extends AbstractController implements ActionListener
     public void actionPerformed(ActionEvent e) {
         // update the score label
         if (model.gameStarted) {
-            //view.setTitle("Sum of all dice: " + model.getSumOfAllDice());
+            view.setTitle("Yahtzee - Current Player: " + model.getCurPlayer());
             view.setVisible(true);
         }
 
@@ -68,7 +70,7 @@ public class MainController extends AbstractController implements ActionListener
         int returnedRolls = getButtonController().returnRolls();
 
         if (returnedRolls == 0) {
-            if (getButtonController().getScoreBoardPressed() == true){
+            if (getButtonController().getScoreBoardPressed()){
                 changeTurn();
             }
         }

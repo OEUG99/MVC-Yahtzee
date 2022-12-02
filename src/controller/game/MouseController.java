@@ -10,9 +10,12 @@ import java.awt.event.*;
 
 public class MouseController extends AbstractController implements MouseMotionListener, MouseListener {
 
+    private MusicController musicController;
 
     public MouseController(MainView view, MainModel model, MainController controller) {
+
         super(view, model);
+        this.musicController = controller.getMusicController();
     }
 
 
@@ -25,6 +28,7 @@ public class MouseController extends AbstractController implements MouseMotionLi
             // getting the Model instance of the dice
             DiceModel diceModelInstance = model.getDice(diceViewInstance.getId());
 
+            musicController.playSound("sounds/lock.wav", false, false);
             // rolling dice if it is not locked
             if (!diceModelInstance.isLocked()) {
                 // locking the dice

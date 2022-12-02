@@ -9,12 +9,14 @@ public class MainModel {
     // number of players, just one for now
     private ScoreModel [][] scores = new ScoreModel[17][1];
 
+
     public DiceModel [] dice = new DiceModel[5];
 
 
     public Boolean gameStarted = false;
 
     private int numPlayers;
+    private int curPlayer;
 
 
     public MainModel() {
@@ -33,18 +35,6 @@ public class MainModel {
         // get the dice values
         return dice[diceId];
     }
-    public String getRandomNumber() {
-        int ran = new Random().nextInt(6) + 1;
-        return Integer.toString(ran);
-    }
-
-    public String getSumOfAllDice() {
-        int sum = 0;
-        for (int i = 0; i < 5; i++) {
-            sum += dice[i].getValueAsInt();
-        }
-        return Integer.toString(sum);
-    }
 
     public int getNumPlayers() {
         return numPlayers;
@@ -52,5 +42,17 @@ public class MainModel {
 
     public boolean getFancyDiceMode(){
         return fancyDiceMode;
+    }
+
+    public void setCurPlayer(int i) {
+        curPlayer = i;
+    }
+
+    public void nextPlayer(){
+        curPlayer = (curPlayer + 1) % numPlayers;
+    }
+
+    public String getCurPlayer() {
+        return Integer.toString(curPlayer);
     }
 }
