@@ -63,26 +63,26 @@ public class ButtonController extends AbstractControllerListener {
         }
         view.getScoreboardView().getScoreContainerView().getScoreArray()[6].getScoreButton().setText("" + bonusFinal);
         view.getScoreboardView().getScoreContainerView().getScoreArray()[6].getScoreButton().setEnabled(false);
-        model.getScoreModel(model.getCurPlayer()).setArrayValue(6, bonusFinal);
 
         // Top total
         topTotalFinal = ( onesFinal + twosFinal + threesFinal + foursFinal + fivesFinal + sixesFinal + bonusFinal );
         view.getScoreboardView().getScoreContainerView().getScoreArray()[7].getScoreButton().setText("" + topTotalFinal);
         view.getScoreboardView().getScoreContainerView().getScoreArray()[7].getScoreButton().setEnabled(false);
-        model.getScoreModel(model.getCurPlayer()).setArrayValue(7, topTotalFinal);
 
         // Bot total
         botTotalFinal = ( threeOfAKindFinal + fourOfAKindFinal + fullHouseFinal + smallStraitFinal + largeStraitFinal + yahtzeeFinal + chanceFinal );
         view.getScoreboardView().getScoreContainerView().getScoreArray()[15].getScoreButton().setText("" + botTotalFinal);
         view.getScoreboardView().getScoreContainerView().getScoreArray()[15].getScoreButton().setEnabled(false);
-        model.getScoreModel(model.getCurPlayer()).setArrayValue(15, botTotalFinal);
 
         // Grand total
         grandTotalFinal = ( topTotalFinal + botTotalFinal );
         view.getScoreboardView().getScoreContainerView().getScoreArray()[16].getScoreButton().setText("" + grandTotalFinal);
         view.getScoreboardView().getScoreContainerView().getScoreArray()[16].getScoreButton().setEnabled(false);
-        model.getScoreModel(model.getCurPlayer()).setArrayValue(16, grandTotalFinal);
 
+        model.getScoreModel(model.getCurPlayer()).setArrayValue(6, bonusFinal);
+        model.getScoreModel(model.getCurPlayer()).setArrayValue(7, topTotalFinal);
+        model.getScoreModel(model.getCurPlayer()).setArrayValue(15, botTotalFinal);
+        model.getScoreModel(model.getCurPlayer()).setArrayValue(16, grandTotalFinal);
     }
 
     public void actionPerformed(ActionEvent e) {
