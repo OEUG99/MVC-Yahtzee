@@ -26,6 +26,7 @@ public class MainView extends JFrame{
 
         this.scoreboardView = new ScoreboardView();
         add(scoreboardView, BorderLayout.CENTER);
+        setVisible(false);
     }
 
     public DiceContainerView getDiceContainer() {
