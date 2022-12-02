@@ -6,11 +6,11 @@ import view.launcher.LaunchMenuView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ButtonListener implements ActionListener {
+public class StartButtonListener implements ActionListener {
     private MainModel model;
     private LaunchMenuView view;
 
-    public ButtonListener(MainModel model, LaunchMenuView view) {
+    public StartButtonListener(MainModel model, LaunchMenuView view) {
         this.model = model;
         this.view = view;
     }
@@ -18,9 +18,9 @@ public class ButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {;
 
-        if(e.getSource() == view.getButton()) {
+        if (e.getSource() == view.getStartButton()) {
             // if the user inputted an integer
-            if (view.getTextField().matches("^[0-9]+$")) {
+            if (view.getTextField().matches("^[1-9]+$")) {
                 model.setNumPlayers(Integer.parseInt(view.getTextField()));
                 model.setCurPlayer(0);
                 System.out.println(model.getNumPlayers());
@@ -29,7 +29,6 @@ public class ButtonListener implements ActionListener {
                 model.gameStarted = true;
                 view.setVisible(false);
             }
-
         }
     }
 }

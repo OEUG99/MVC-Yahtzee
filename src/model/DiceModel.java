@@ -2,30 +2,14 @@ package model;
 
 public class DiceModel {
     private int value;
-    private int id;
-
     boolean isLocked = false;
 
-    public DiceModel(int id) {
+    public DiceModel() {
         roll();
-        this.id = id;
     }
 
     public String getValue() {
         return Integer.toString(value);
-    }
-
-    public int getValueAsInt() {
-        return value;
-    }
-
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public void roll() {

@@ -13,6 +13,7 @@ public class LaunchController {
         this.model = model;
         this.view = launchMenuView;
 
-        view.getButton().addActionListener(new ButtonListener(model,view));
+        view.getStartButton().addActionListener(new StartButtonListener(model, view));
+        view.getFancyDiceOption().addActionListener(new CheckBoxListener(model, view));
     }
 }

@@ -20,7 +20,7 @@ public class MainModel {
     public MainModel() {
 
         for (int i = 0; i < 5; i++) {
-            dice[i] = new DiceModel(i);
+            dice[i] = new DiceModel();
         }
 
     }
@@ -41,6 +41,10 @@ public class MainModel {
 
     public boolean getFancyDiceMode(){
         return fancyDiceMode;
+    }
+
+    public void setFancyDiceMode(Boolean value){
+        this.fancyDiceMode = value;
     }
 
     public void setCurPlayer(int i) {

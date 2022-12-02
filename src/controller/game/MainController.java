@@ -44,6 +44,7 @@ public class MainController extends AbstractController implements ActionListener
         model.nextPlayer();
 
         getButtonController().resetRollButton();
+
         view.getDiceContainer().getButton().setText("Roll the Dice");
         for (int i = 0; i < 5; i++) {
 
@@ -51,6 +52,8 @@ public class MainController extends AbstractController implements ActionListener
             view.getDiceContainer().getDice(i).getDiceLabel().setFont(new Font("Arial", Font.BOLD, 13));
             view.getDiceContainer().getDice(i).setDiceText("Roll Me!");
             view.getDiceContainer().getDice(i).setLocked(false);
+            model.getDice(i).setLocked(false);
+
             getButtonController().changeScoreBoardPressed();
             for (int j = 0; j < 17; j++) {
                     view.getScoreboardView().getScoreContainerView().getScoreArray()[j].getScoreButton().setEnabled(false);
