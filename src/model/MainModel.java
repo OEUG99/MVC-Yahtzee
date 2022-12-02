@@ -66,4 +66,8 @@ public class MainModel {
     public ScoreModel getScoreModel(int index) {
         return scoreModels[index];
     }
+
+    public ScoreModel getCurrentScoreModel(){
+        return getScoreModel(curPlayer);
+    }
 }
