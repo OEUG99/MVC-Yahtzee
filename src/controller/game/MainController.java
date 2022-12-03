@@ -22,6 +22,8 @@ public class MainController extends AbstractController implements ActionListener
     WindowController windowController;
     MusicController musicController;
 
+    LaunchMenuView Launcher;
+
     // For tracking tuns until the end of the game
     int numTurns = 13;
 
@@ -81,6 +83,10 @@ public class MainController extends AbstractController implements ActionListener
             if (getButtonController().getScoreBoardPressed()){
                 changeTurn();
             }
+        }
+
+        if (numTurns == 0) {
+
         }
 
     }
