@@ -63,6 +63,7 @@ public class MainController extends AbstractController implements ActionListener
                     view.getScoreboardView().getScoreContainerView().getScoreArray()[j].getScoreButton().setEnabled(false);
             }
         }
+        numTurns--;
     }
 
     @Override
@@ -79,7 +80,6 @@ public class MainController extends AbstractController implements ActionListener
         if (returnedRolls == 0) {
             if (getButtonController().getScoreBoardPressed()){
                 changeTurn();
-                numTurns--;
             }
         }
 
