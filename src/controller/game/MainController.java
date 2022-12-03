@@ -63,7 +63,6 @@ public class MainController extends AbstractController implements ActionListener
                     view.getScoreboardView().getScoreContainerView().getScoreArray()[j].getScoreButton().setEnabled(false);
             }
         }
-        numTurns--;
     }
 
     @Override
@@ -74,12 +73,13 @@ public class MainController extends AbstractController implements ActionListener
             view.setVisible(true);
         }
 
-        // Temporary implement for restarting turns
+        // Implement for restarting turns
         int returnedRolls = getButtonController().returnRolls();
 
         if (returnedRolls == 0) {
             if (getButtonController().getScoreBoardPressed()){
                 changeTurn();
+                numTurns--;
             }
         }
 
