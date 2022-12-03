@@ -146,7 +146,7 @@ public class ButtonController extends AbstractControllerListener {
         int yahtzeeCalc = 0;
         int chanceCalc = 0;
 
-
+        // The algorithms... these could be cleaned up
 
         // Ones
         if (e.getSource() == view.getScoreboardView().getScoreContainerView().getScoreArray()[0].getScoreButton()) {

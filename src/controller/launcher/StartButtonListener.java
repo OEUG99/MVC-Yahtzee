@@ -19,16 +19,7 @@ public class StartButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {;
 
         if (e.getSource() == view.getStartButton()) {
-            // if the user inputted an integer
-            if (view.getTextField().matches("^[1-9]+$")) {
-                model.setNumPlayers(Integer.parseInt(view.getTextField()));
-                model.setCurPlayer(0);
-                System.out.println(model.getNumPlayers());
-
-                // starting the main game, hiding the launch options
-                model.gameStarted = true;
-                view.setVisible(false);
-            }
+            model.gameStarted = true;
         }
     }
 }

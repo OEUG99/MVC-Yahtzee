@@ -42,5 +42,4 @@ public class ScoreboardView extends JPanel {
     public ScoreContainerView getScoreContainerView() {
         return scoreContainer;
     }
-
 }

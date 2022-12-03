@@ -20,7 +20,6 @@ public class MainView extends JFrame{
 
         setLayout(new BorderLayout());
 
-
         this.diceContainerView = new DiceContainerView();
         add(diceContainerView, BorderLayout.SOUTH);
 

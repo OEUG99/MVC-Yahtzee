@@ -10,7 +10,6 @@ public class LaunchMenuView extends JFrame {
 
     private JLabel numPlayersText, fancyDiceText, fancyDiceWarningText;
     private JButton button;
-    private JTextField textField;
 
     private JCheckBox fancyDiceOption;
 
@@ -24,12 +23,10 @@ public class LaunchMenuView extends JFrame {
         add(panel);
 
         // Components to handle numPlayer colleciton
-        this.numPlayersText = new JLabel("Type the number of player, then click the start button.");
+        this.numPlayersText = new JLabel("Welcome to Yahtzee, click the start button to play!");
         this.numPlayersText.setHorizontalTextPosition(JLabel.CENTER);
-        this.textField = new JTextField(4);
         this.button = new JButton("Start Game");
         panel.add(numPlayersText);
-        panel.add(textField);
         panel.add(button);
 
         // fancy dice components
@@ -40,18 +37,12 @@ public class LaunchMenuView extends JFrame {
         panel.add(fancyDiceOption);
         panel.add(fancyDiceWarningText);
 
-
-
         pack();
         setVisible( true );
     }
 
     public JButton getStartButton() {
         return this.button;
-    }
-
-    public String getTextField() {
-        return textField.getText();
     }
 
     public JCheckBox getFancyDiceOption() {

@@ -2,8 +2,12 @@ package controller.game;
 
 import model.MainModel;
 import view.game.MainView;
+import view.launcher.LaunchMenuView;
 
 import javax.swing.*;
+
+import controller.launcher.LaunchController;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +22,8 @@ public class MainController extends AbstractController implements ActionListener
     WindowController windowController;
     MusicController musicController;
 
+    // For tracking tuns until the end of the game
+    int numTurns = 13;
 
     public MainController(MainView view, MainModel model) {
         super(view, model);
@@ -41,17 +47,6 @@ public class MainController extends AbstractController implements ActionListener
 
     public void changeTurn() {
 
-        for (int i = 0; i < 17; i++) {
-            if (model.getScoreModel(model.getCurPlayer()).getScoreArray(i) != -1) {
-                view.getScoreboardView().getScoreContainerView().getScoreView(i).changeScoreTextInt(model.getScoreModel(model.getCurPlayer()).getScoreArray(i));
-            }
-            else {
-                view.getScoreboardView().getScoreContainerView().getScoreView(i).changeScoreText("Score here.");
-            }
-        }
-
-        model.nextPlayer();
-
         getButtonController().resetRollButton();
 
         view.getDiceContainer().getButton().setText("Roll the Dice");
@@ -68,18 +63,14 @@ public class MainController extends AbstractController implements ActionListener
                     view.getScoreboardView().getScoreContainerView().getScoreArray()[j].getScoreButton().setEnabled(false);
             }
         }
+        numTurns--;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
         if (model.gameStarted) {
-            if (model.getNumPlayers() > 1){
-                int curPlayer = model.getCurPlayer() + 1;
-                view.setTitle("Yahtzee - Current Player: " + curPlayer);
-            } else {
-                view.setTitle("Yahtzee - Single Player");
-            }
+            view.setTitle("Yahtzee - The Fun Game That Makes Thinking Fun!");
             view.setVisible(true);
         }
 
@@ -122,6 +113,7 @@ public class MainController extends AbstractController implements ActionListener
             view.getDiceContainer().getDice(i).addMouseListener(getMouseController());
         }
 
+        // Finally, accessing and assigning the scoreboard
         for (int i = 0; i < 17; i++){
             JButton button = view.getScoreboardView().getScoreContainerView().getScoreArray()[i].getScoreButton();
             button.addActionListener(getButtonController());

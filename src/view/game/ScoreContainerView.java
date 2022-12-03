@@ -57,8 +57,4 @@ public ScoreContainerView() {
     public ScoreView[] getScoreArray() {
         return scoreArray;
     }
-
-    public ScoreView getScoreView(int i) {
-        return scoreArray[i];
-    }
 }
