@@ -15,7 +15,7 @@ public class KeyboardController extends AbstractController implements KeyListene
 
     @Override
     public void keyTyped(KeyEvent e) {
-        System.out.println(e.getKeyCode());
+
     }
 
     @Override

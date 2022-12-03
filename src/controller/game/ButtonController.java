@@ -79,10 +79,12 @@ public class ButtonController extends AbstractControllerListener {
         view.getScoreboardView().getScoreContainerView().getScoreArray()[16].getScoreButton().setText("" + grandTotalFinal);
         view.getScoreboardView().getScoreContainerView().getScoreArray()[16].getScoreButton().setEnabled(false);
 
-        model.getScoreModel(model.getCurPlayer()).setArrayValue(6, bonusFinal);
-        model.getScoreModel(model.getCurPlayer()).setArrayValue(7, topTotalFinal);
-        model.getScoreModel(model.getCurPlayer()).setArrayValue(15, botTotalFinal);
-        model.getScoreModel(model.getCurPlayer()).setArrayValue(16, grandTotalFinal);
+        //model.getScoreModel(model.getCurPlayer()).setArrayValue(6, bonusFinal);
+        //model.getScoreModel(model.getCurPlayer()).setArrayValue(7, topTotalFinal);
+        //model.getScoreModel(model.getCurPlayer()).setArrayValue(15, botTotalFinal);
+        //model.getScoreModel(model.getCurPlayer()).setArrayValue(16, grandTotalFinal)
+
+;
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -99,8 +101,8 @@ public class ButtonController extends AbstractControllerListener {
             if (rollsLeft == 0) { // todo make it show the scorebuttons are always usable but change turns
                 view.getDiceContainer().getButton().setEnabled(false);
 
-
             }
+
 
             model.gameStarted = true; // if we roll all the dice, we know the game started.
 
@@ -162,7 +164,6 @@ public class ButtonController extends AbstractControllerListener {
             scoreBoardPressed = true;
             disableScoreButtons();
             calcTotals();
-            model.getScoreModel(model.getCurPlayer()).setArrayValue(0, onesFinal);
         }
 
         // Twos
@@ -179,7 +180,6 @@ public class ButtonController extends AbstractControllerListener {
             scoreBoardPressed = true;
             disableScoreButtons();
             calcTotals();
-            model.getScoreModel(model.getCurPlayer()).setArrayValue(1, twosFinal);
         }
 
         // Threes
@@ -196,7 +196,6 @@ public class ButtonController extends AbstractControllerListener {
             scoreBoardPressed = true;
             disableScoreButtons();
             calcTotals();
-            model.getScoreModel(model.getCurPlayer()).setArrayValue(2, threesFinal);
         }
 
         // Fours
@@ -213,7 +212,6 @@ public class ButtonController extends AbstractControllerListener {
             scoreBoardPressed = true;
             disableScoreButtons();
             calcTotals();
-            model.getScoreModel(model.getCurPlayer()).setArrayValue(3, foursFinal);
         }
 
         // Fives
@@ -230,7 +228,6 @@ public class ButtonController extends AbstractControllerListener {
             scoreBoardPressed = true;
             disableScoreButtons();
             calcTotals();
-            model.getScoreModel(model.getCurPlayer()).setArrayValue(4, fivesFinal);
         }
 
         // Sixes
@@ -247,7 +244,6 @@ public class ButtonController extends AbstractControllerListener {
             scoreBoardPressed = true;
             disableScoreButtons();
             calcTotals();
-            model.getScoreModel(model.getCurPlayer()).setArrayValue(5, sixesFinal);
         }
 
         // Three of a kind
@@ -297,7 +293,6 @@ public class ButtonController extends AbstractControllerListener {
             scoreBoardPressed = true;
             disableScoreButtons();
             calcTotals();
-            model.getScoreModel(model.getCurPlayer()).setArrayValue(8, threeOfAKindFinal);
         }
 
         // Four of a kind
@@ -347,7 +342,7 @@ public class ButtonController extends AbstractControllerListener {
             scoreBoardPressed = true;
             disableScoreButtons();
             calcTotals();
-            model.getScoreModel(model.getCurPlayer()).setArrayValue(9, fourOfAKindFinal);
+
         }
 
         // Full house
@@ -391,7 +386,6 @@ public class ButtonController extends AbstractControllerListener {
             scoreBoardPressed = true;
             disableScoreButtons();
             calcTotals();
-            model.getScoreModel(model.getCurPlayer()).setArrayValue(10, fullHouseFinal);
         }
 
         // Small strait
@@ -435,7 +429,7 @@ public class ButtonController extends AbstractControllerListener {
             scoreBoardPressed = true;
             disableScoreButtons();
             calcTotals();
-            model.getScoreModel(model.getCurPlayer()).setArrayValue(11, smallStraitFinal);
+
         }
 
         // Large strait
@@ -479,7 +473,6 @@ public class ButtonController extends AbstractControllerListener {
             scoreBoardPressed = true;
             disableScoreButtons();
             calcTotals();
-            model.getScoreModel(model.getCurPlayer()).setArrayValue(12, largeStraitFinal);
         }
 
         // Yahtzee
@@ -523,7 +516,6 @@ public class ButtonController extends AbstractControllerListener {
             scoreBoardPressed = true;
             disableScoreButtons();
             calcTotals();
-            model.getScoreModel(model.getCurPlayer()).setArrayValue(13, yahtzeeFinal);
         }
 
         // Chance
@@ -538,7 +530,6 @@ public class ButtonController extends AbstractControllerListener {
             scoreBoardPressed = true;
             disableScoreButtons();
             calcTotals();
-            model.getScoreModel(model.getCurPlayer()).setArrayValue(14, chanceFinal);
         }
 
         //

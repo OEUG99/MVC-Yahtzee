@@ -55,8 +55,6 @@ public class DiceView extends JPanel {
         diceLabel.setFont(new Font("Arial", Font.BOLD, 50));
         diceLabel.setText(output);
 
-
-
     }
 
 

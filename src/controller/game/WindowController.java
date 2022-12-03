@@ -33,7 +33,9 @@ public class WindowController extends AbstractController implements ComponentLis
 
     @Override
     public void componentHidden(ComponentEvent e) {
+
     }
+
 
     public void scaleView(ComponentEvent e) {
         Dimension diceSize = new Dimension(getSmallestDimension()/7, getSmallestDimension()/7);
