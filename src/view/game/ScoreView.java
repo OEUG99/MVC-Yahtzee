@@ -40,4 +40,14 @@ public class ScoreView extends JPanel {
     public String getScoreHere() {
         return scoreButton.getText();
     }
+
+    public String changeScoreText(String i) {
+        scoreButton.setText(i);
+        return getScoreHere();
+    }
+
+    public String changeScoreTextInt(int i) {
+        scoreButton.setText(String.valueOf(i));
+        return getScoreHere();
+    }
 }

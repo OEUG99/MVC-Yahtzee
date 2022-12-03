@@ -41,6 +41,15 @@ public class MainController extends AbstractController implements ActionListener
 
     public void changeTurn() {
 
+        for (int i = 0; i < 17; i++) {
+            if (model.getScoreModel(model.getCurPlayer()).getScoreArray(i) != -1) {
+                view.getScoreboardView().getScoreContainerView().getScoreView(i).changeScoreTextInt(model.getScoreModel(model.getCurPlayer()).getScoreArray(i));
+            }
+            else {
+                view.getScoreboardView().getScoreContainerView().getScoreView(i).changeScoreText("Score here.");
+            }
+        }
+
         model.nextPlayer();
 
         getButtonController().resetRollButton();
