@@ -14,6 +14,8 @@ public abstract class AbstractController {
         this.view = view;
         this.model = model;
 
+        System.out.println("registed: " + this.toString());
+
     }
 }
 

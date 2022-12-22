@@ -2,6 +2,7 @@ package controller.game;
 
 import model.MainModel;
 import view.game.MainView;
+import view.game.ScoreView;
 import view.launcher.LaunchMenuView;
 
 import javax.swing.*;
@@ -16,21 +17,26 @@ import java.awt.event.ComponentEvent;
 
 public class MainController extends AbstractController implements ActionListener {
 
+    private LaunchController launchMenuController;
     MouseController mouseController;
     KeyboardController keyboardController;
-    ButtonController buttonController;
+    GenericButtonController genericButtonController;
     WindowController windowController;
     MusicController musicController;
+    ScoreButtonController scoreButtonController;
+
 
     LaunchMenuView Launcher;
 
     // For tracking tuns until the end of the game
     int numTurns = 13;
+    private Timer timer;
 
-    public MainController(MainView view, MainModel model) {
+    public MainController(MainView view, MainModel model, LaunchController launchMenuController) {
         super(view, model);
         initSubControllers();
         startGame();
+        this.launchMenuController = launchMenuController;
     }
 
     /**
@@ -43,7 +49,7 @@ public class MainController extends AbstractController implements ActionListener
 
         // creating timer, think of this as an alternative to a traditional game loop. We will set delay to '1' not '0'
         // to avoid hogging CPU. This delay should be fast enough for our purposes.
-        Timer timer = new Timer(1, this);
+        this.timer = new Timer(1, this);
         timer.start();
     }
 
@@ -62,7 +68,7 @@ public class MainController extends AbstractController implements ActionListener
 
             getButtonController().changeScoreBoardPressed();
             for (int j = 0; j < 17; j++) {
-                    view.getScoreboardView().getScoreContainerView().getScoreArray()[j].getScoreButton().setEnabled(false);
+                view.getScoreboardView().getScoreContainerView().getScoreArray()[j].getScoreButton().setEnabled(false);
             }
         }
         numTurns--;
@@ -86,6 +92,9 @@ public class MainController extends AbstractController implements ActionListener
         }
 
         if (numTurns == 0) {
+            this.timer.stop();
+            launchMenuController.updateViability(true);
+            view.setVisible(false);
 
         }
 
@@ -96,8 +105,9 @@ public class MainController extends AbstractController implements ActionListener
         registerController(new MusicController(view, model, this));
         registerController(new MouseController(view, model, this));
         registerController(new KeyboardController(view, model, this));
-        registerController(new ButtonController(view, model, this));
+        registerController(new GenericButtonController(view, model, this));
         registerController(new WindowController(view, model, this));
+        registerController(new ScoreButtonController(view,model, this));
 
         // We can now assign specific sub-controllers to the view of different components.
         // First lets assigning the mouse sub-controller to the DiceContainerView:
@@ -108,6 +118,13 @@ public class MainController extends AbstractController implements ActionListener
         // Notice how from mainView we get the container again, but then we get the button.
         // this allows us the button controller to update the model whenever that single button is pressed.
         view.getDiceContainer().getButton().addActionListener(getButtonController());
+
+        ScoreView[] sArray = view.getScoreboardView().getScoreContainerView().getScoreArray();
+
+
+        for (ScoreView score : sArray) {
+            score.getScoreButton().addActionListener(getScoreButtonController());
+        }
 
         // Assigning the window sub-controller to the main view (the JFrame):
         // this is used to handle scaling of the window.
@@ -126,6 +143,8 @@ public class MainController extends AbstractController implements ActionListener
         }
     }
 
+
+
     private void registerController(AbstractController controller) {
 
         if (controller instanceof MusicController) { // music has to go first since other controllers talk to it.
@@ -135,10 +154,12 @@ public class MainController extends AbstractController implements ActionListener
             mouseController = (MouseController) controller;
         } else if (controller instanceof KeyboardController) {
             keyboardController = (KeyboardController) controller;
-        } else if (controller instanceof ButtonController) {
-            buttonController = (ButtonController) controller;
+        } else if (controller instanceof GenericButtonController) {
+            genericButtonController = (GenericButtonController) controller;
         } else if (controller instanceof WindowController) {
             windowController = (WindowController) controller;
+        } else if (controller instanceof ScoreButtonController){
+            scoreButtonController = (ScoreButtonController) controller;
         }
     }
 
@@ -147,12 +168,17 @@ public class MainController extends AbstractController implements ActionListener
         return mouseController;
     }
 
+
+    private ActionListener getScoreButtonController() {
+        return scoreButtonController;
+    }
+
     public KeyboardController getKeyboardController() {
         return keyboardController;
     }
 
-    public ButtonController getButtonController() {
-        return buttonController;
+    public GenericButtonController getButtonController() {
+        return genericButtonController;
     }
 
     public WindowController getWindowController() {

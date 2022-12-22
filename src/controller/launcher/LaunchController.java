@@ -16,4 +16,8 @@ public class LaunchController {
         view.getStartButton().addActionListener(new StartButtonListener(model, view));
         view.getFancyDiceOption().addActionListener(new CheckBoxListener(model, view));
     }
+
+    public void updateViability(boolean b){
+        view.setVisible(b);
+    }
 }

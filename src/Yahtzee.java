@@ -16,7 +16,7 @@ public class Yahtzee {
 
         // Main Game:
         MainView view = new MainView();
-        MainController controller = new MainController(view, model);
+        MainController controller = new MainController(view, model, launchMenuController);
         view.setVisible(false);
     }
 }
