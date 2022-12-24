@@ -5,8 +5,9 @@ import view.game.MainView;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GenericButtonController extends AbstractControllerListener {
+public class GenericButtonController extends BaseController implements ActionListener {
 
     private int rollsLeft = 3;
 

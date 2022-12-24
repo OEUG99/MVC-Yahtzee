@@ -1,15 +1,16 @@
-package controller.game;
+package controller.game.scoreboard;
 
+import controller.game.BaseController;
+import controller.game.MainController;
+import controller.game.MusicController;
 import model.MainModel;
 import view.game.MainView;
-import view.game.ScoreView;
 
 import java.awt.event.ActionEvent;
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.List;
+import java.awt.event.ActionListener;
 
-public class ScoreButtonController extends AbstractControllerListener {
+
+public class ScoreButtonController extends BaseController implements ActionListener {
 
     private MusicController musicController;
 

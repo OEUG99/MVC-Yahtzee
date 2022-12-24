@@ -11,7 +11,7 @@ import java.awt.event.ComponentListener;
 /**
  * A class that handles the users resizing of the window.
  */
-public class WindowController extends AbstractController implements ComponentListener {
+public class WindowController extends BaseController implements ComponentListener {
 
     public WindowController(MainView mainView, MainModel mainModel, MainController controller) {
         super(mainView, mainModel);

@@ -8,7 +8,7 @@ import view.game.MainView;
 import java.awt.event.*;
 
 
-public class MouseController extends AbstractController implements MouseMotionListener, MouseListener {
+public class MouseController extends BaseController implements MouseMotionListener, MouseListener {
 
     private MusicController musicController;
 

@@ -1,12 +1,14 @@
-package controller.game;
+package controller.game.userinput;
 
+import controller.game.BaseController;
+import controller.game.MainController;
 import model.MainModel;
 import view.game.MainView;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class KeyboardController extends AbstractController implements KeyListener {
+public class KeyboardController extends BaseController implements KeyListener {
 
     public KeyboardController(MainView view, MainModel model, MainController controller) {
         super(view, model);
@@ -27,4 +29,5 @@ public class KeyboardController extends AbstractController implements KeyListene
     public void keyReleased(KeyEvent e) {
 
     }
+
 }

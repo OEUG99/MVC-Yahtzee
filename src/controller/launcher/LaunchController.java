@@ -13,8 +13,8 @@ public class LaunchController {
         this.model = model;
         this.view = launchMenuView;
 
-        view.getStartButton().addActionListener(new StartButtonListener(model, view));
-        view.getFancyDiceOption().addActionListener(new CheckBoxListener(model, view));
+        view.getStartButton().addActionListener(new StartButtonController(model, view));
+        view.getFancyDiceOption().addActionListener(new CheckBoxController(model, view));
     }
 
     public void updateViability(boolean b){

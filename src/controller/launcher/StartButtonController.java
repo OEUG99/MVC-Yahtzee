@@ -6,11 +6,11 @@ import view.launcher.LaunchMenuView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StartButtonListener implements ActionListener {
+public class StartButtonController implements ActionListener {
     private MainModel model;
     private LaunchMenuView view;
 
-    public StartButtonListener(MainModel model, LaunchMenuView view) {
+    public StartButtonController(MainModel model, LaunchMenuView view) {
         this.model = model;
         this.view = view;
     }
